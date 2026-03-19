@@ -925,7 +925,7 @@ function showMapSelect(){
     d.innerHTML='<div class="mc-title" style="color:'+(locked?'#555':m.color)+'">'+m.name+'</div>'+
       '<div class="mc-desc">'+m.desc+'</div>'+
       '<div class="mc-badge" style="color:'+(locked?'#555':m.color)+'">'+(locked?'ZABLOKOWANE':'REKORD: '+(SAVE.mapBest[i]||0))+'</div>'+
-      (won&&i>0?'<div class="mc-desc" style="color:#ffcc00;margin-top:4px">Wygraj na poprzedniej mapie aby odblokować</div>':'');
+      (locked&&i>0?'<div class="mc-desc" style="color:#ffcc00;margin-top:4px">Wygraj na poprzedniej mapie aby odblokować</div>':'');
     if(!locked){
       d.addEventListener('click',function(mid){return function(){
         document.getElementById('mapSel').classList.add('off');
@@ -961,6 +961,7 @@ function showShop(){
     }
     grid.appendChild(d);
   }
+  document.getElementById('shop').classList.remove('off');
 }
 
 // ══ TOUCH ══
